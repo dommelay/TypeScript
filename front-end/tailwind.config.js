@@ -5,9 +5,15 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'purple': '#8084f4' 
+      'purple': '#8084f4' ,
+      'grey': '#d9d9d9',
+      'light': '#e2e8f0',
     },
-    extend: {},
+    extend: {
+      spacing: {
+        '25': '25px',
+      },
+    },
   },
   plugins: [],
 }

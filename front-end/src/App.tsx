@@ -7,20 +7,13 @@ import Buttons from './components/Buttons'
 
 function App() {
   return (
-    <div className='w-screen h-screen bg-red-100'>
-      <div>
-        <h1 className='text-purple font-medium italic text-8xl'>Theme Preference</h1>
-      </div>
+    <div className='h-screen bg-light'>
+        <h1 className='text-purple font-medium italic text-8xl text-shadow'>Theme Preference</h1>
+     
       <Buttons/>
-      <div>
-      <FigmaEmbed />
+
       </div>
       
-
-
-
-      {/* <button className='bg-blue-100 text-6xl rounded px-4 py-2'>Click Me</button> */}
-    </div>
   );
 }
 
