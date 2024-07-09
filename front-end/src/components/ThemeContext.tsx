@@ -1,8 +1,9 @@
 import React, {createContext, useContext, useState, ReactNode} from 'react';
 
 type ThemeContextType = {
-    backgroundColor: string;
-    toggleTheme: () => void;
+    color: string;
+    setLight: () => void;
+    setDark: () => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -13,14 +14,22 @@ export const useTheme = () => {
         throw new Error('error')
     }
     return context;
-}
+};
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [isLightTheme, setIsLightTheme] = useState(true);
+export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [color, setColor] = useState('bg-light');
   
-    const toggleTheme = () => {
-      setIsLightTheme((prevIsLightTheme) => !prevIsLightTheme);
+    const setLight = () => {
+        setColor('bg-light');
     };
 
-    // const backgroundColor = isLightTheme ? 'bg-slate-'
-}
+    const setDark = () => {
+        setColor('bg-dark');
+    };
+
+    return (
+        <ThemeContext.Provider value={{ color, setLight, setDark }}>
+            <div className={color}>{children}</div>
+        </ThemeContext.Provider>
+    );
+};
